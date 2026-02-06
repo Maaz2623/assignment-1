@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import {
+  ArrowLeftRightIcon,
   ArrowRightLeftIcon,
   BanknoteArrowUpIcon,
   Calendar,
@@ -14,6 +15,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Changa_One, Bebas_Neue } from "next/font/google";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { TransfersDropdown } from "./transfers/_components/transfers-dropdown";
 
 const changaOne = Changa_One({ subsets: ["latin"], weight: ["400"] });
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
@@ -78,15 +81,22 @@ export default function Sidebar() {
           const isTranfer = item.url === "/dashboard/transfers";
           return (
             <div
+              key={item.url}
               className={cn(
-                "w-full cursor-pointer items-center flex-col h-[15%] text-center gap-y-1 sm:gap-y-2 justify-center flex px-1",
+                "w-full cursor-pointer hover:bg-white hover:text-red-600 items-center flex-col h-[15%] text-center gap-y-1 sm:gap-y-2 justify-center flex px-1",
                 pathname === item.url && "bg-white text-red-600"
               )}
             >
               {isTranfer ? (
-                <div>
-                  <Button>test1</Button>
-                </div>
+                <TransfersDropdown>
+                  <div
+                    key={item.url}
+                    className="w-full h-full justify-center items-center flex flex-col"
+                  >
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    Transfers
+                  </div>
+                </TransfersDropdown>
               ) : (
                 <Link
                   href={item.url}
