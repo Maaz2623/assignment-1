@@ -1,3 +1,5 @@
+import { AlertsDropdown } from "@/components/alerts-dropdown";
+import { SettingsDropdown } from "@/components/settings-dropdown";
 import { Button } from "@/components/ui/button";
 import { BellIcon, LogOutIcon, MailIcon, SettingsIcon } from "lucide-react";
 
@@ -16,15 +18,19 @@ export default function TopBar() {
             16
           </span>
         </Button>
-        <Button variant={`ghost`} size={`icon-lg`} className="relative w-5">
-          <BellIcon className="size-6 sm:size-7" />
-          <span className="absolute -top-1 -right-2 bg-red-500 text-xs text-white rounded-full px-1">
-            27
-          </span>
-        </Button>
-        <Button variant={`ghost`} size={`icon-lg`}>
-          <SettingsIcon className="size-6 sm:size-7" />
-        </Button>
+        <AlertsDropdown>
+          <Button variant={`ghost`} size={`icon-lg`} className="relative w-5">
+            <BellIcon className="size-6 sm:size-7" />
+            <span className="absolute -top-1 -right-2 bg-red-500 text-xs text-white rounded-full px-1">
+              27
+            </span>
+          </Button>
+        </AlertsDropdown>
+        <SettingsDropdown>
+          <Button variant={`ghost`} size={`icon-lg`}>
+            <SettingsIcon className="size-6 sm:size-7" />
+          </Button>
+        </SettingsDropdown>
         <Button variant={`ghost`} size={`icon-lg`}>
           <LogOutIcon className="size-6 sm:size-7" />
         </Button>

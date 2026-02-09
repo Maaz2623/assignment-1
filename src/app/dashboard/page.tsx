@@ -69,7 +69,7 @@ export default function DashboardPage() {
             <NotepadTextIcon />
             PAYMENTS
           </Button>
-
+        
           <Button
             variant={`outline`}
             size={`lg`}
