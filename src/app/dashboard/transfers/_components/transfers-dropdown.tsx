@@ -94,7 +94,10 @@ export const TransfersDropdown = ({ children }: Props) => {
             <CalendarClockIcon className="hover:text-white" /> Scheduled
             Tranfers
           </DropdownMenuItem>
-          <DropdownMenuItem className="w-full h-10 hover:bg-rose-600! hover:text-white!">
+          <DropdownMenuItem
+            onClick={() => router.push(`/dashboard/transfers/favourites`)}
+            className="w-full h-10 hover:bg-rose-600! hover:text-white!"
+          >
             {" "}
             <UserStarIcon className="hover:text-white" /> View Favourites
           </DropdownMenuItem>
