@@ -2,7 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeftIcon, LogOutIcon } from "lucide-react";
 import { redirect } from "next/navigation";
-export const AllAccountsTopBar = () => {
+
+type Props = {
+  label: string;
+};
+
+export const AllAccountsTopBar = ({ label }: Props) => {
   return (
     <div className="h-10 flex justify-between items-center w-full ">
       <div className="flex gap-x-3 justify-start items-center">
@@ -13,7 +18,7 @@ export const AllAccountsTopBar = () => {
         >
           <ArrowLeftIcon />
         </Button>
-        <h3 className="text-lg font-medium">All Accounts</h3>
+        <h3 className="text-lg font-medium">{label}</h3>
       </div>
       <div>
         <Button variant={`outline`} size={`icon`} className="text-rose-600">

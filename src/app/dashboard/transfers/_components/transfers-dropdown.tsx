@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -18,6 +19,7 @@ import {
   UsersIcon,
   UserStarIcon,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import React from "react";
 
@@ -26,6 +28,8 @@ type Props = {
 };
 
 export const TransfersDropdown = ({ children }: Props) => {
+  const router = useRouter();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
@@ -53,11 +57,19 @@ export const TransfersDropdown = ({ children }: Props) => {
 
         <DropdownMenuGroup className="flex flex-col gap-y-3">
           <DropdownMenuLabel>Transfers</DropdownMenuLabel>
-          <DropdownMenuItem className="w-full h-10 hover:bg-rose-600! hover:text-white!">
+          <DropdownMenuItem
+            onClick={() => router.push(`/dashboard/transfers/fund-transfers`)}
+            className="w-full h-10 hover:bg-rose-600! hover:text-white!"
+          >
             {" "}
             <UserRoundCheckIcon className="hover:text-white" /> Fund Transfers
           </DropdownMenuItem>
-          <DropdownMenuItem className="w-full h-10  hover:bg-rose-600! hover:text-white!">
+          <DropdownMenuItem
+            onClick={() =>
+              router.push(`/dashboard/transfers/usd-wire-transfers`)
+            }
+            className="w-full h-10  hover:bg-rose-600! hover:text-white!"
+          >
             {" "}
             <BadgeDollarSignIcon className="hover:text-white" /> USD Wire
             Transfers

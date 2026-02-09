@@ -26,7 +26,7 @@ const AllAccountsPage = () => {
 
   return (
     <div className="h-full p-10 gap-y-4 flex flex-col">
-      <AllAccountsTopBar />
+      <AllAccountsTopBar label="All Accounts" />
       <div className="flex-1 px-8 py-2 w-full border min-h-screen rounded-xl bg-gray-100 flex flex-col">
         <div className="h-20 border-b flex justify-end items-center w-full">
           <div className="w-1/3 relative">
