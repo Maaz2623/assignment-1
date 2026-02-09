@@ -91,7 +91,11 @@ export default function Sidebar() {
                 <TransfersDropdown>
                   <div
                     key={item.url}
-                    className="w-full h-full justify-center items-center flex flex-col"
+                    className={cn(
+                      "w-full h-full justify-center items-center flex flex-col",
+                      pathname.includes("/dashboard/transfers") &&
+                        "bg-white text-red-600"
+                    )}
                   >
                     <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     Transfers

@@ -101,7 +101,14 @@ export const TransfersDropdown = ({ children }: Props) => {
             {" "}
             <UserStarIcon className="hover:text-white" /> View Favourites
           </DropdownMenuItem>
-          <DropdownMenuItem className="w-full h-10 hover:bg-rose-600! hover:text-white!">
+          <DropdownMenuItem
+            onClick={() =>
+              router.push(
+                `/dashboard/transfers/recent`
+              )
+            }
+            className="w-full h-10 hover:bg-rose-600! hover:text-white!"
+          >
             <HistoryIcon className="hover:text-white" />
             Recent Tranfers
           </DropdownMenuItem>
