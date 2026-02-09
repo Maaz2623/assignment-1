@@ -1,9 +1,14 @@
+"use client";
 import React from "react";
 import { AllAccountsTopBar } from "../../all-accounts/_components/all-accounts-top-bar";
-import { Trash2, Search } from "lucide-react";
+import { Trash2, Search, SearchIcon } from "lucide-react";
 import { PillGroup } from "../fund-transfers/page";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const Favourites = () => {
+  const [searchOpen, setSearchOpen] = React.useState(false);
+
   return (
     <div className="p-10 space-y-6">
       <AllAccountsTopBar label="View Favourites" />
@@ -12,7 +17,25 @@ const Favourites = () => {
       <div className="flex items-center justify-between">
         <PillGroup items={["All", "USD", "GBP"]} defaultActive="All" />
 
-        <Search className="w-5 h-5 text-gray-500 cursor-pointer" />
+        <div className="">
+          {!searchOpen ? (
+            <>
+              <Button
+                variant={`ghost`}
+                size={`icon`}
+                onClick={() => setSearchOpen(true)}
+              >
+                <SearchIcon className="w-4 h-4 text-muted-foreground" />
+              </Button>
+            </>
+          ) : (
+            <Input
+              autoFocus
+              placeholder={`Search Favourites`}
+              onBlur={() => setSearchOpen(false)}
+            />
+          )}
+        </div>
       </div>
 
       {/* Table */}
