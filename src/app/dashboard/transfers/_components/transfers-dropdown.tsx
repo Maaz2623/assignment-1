@@ -86,7 +86,10 @@ export const TransfersDropdown = ({ children }: Props) => {
             <UsersIcon className="hover:text-white" /> Manage External Tranfers
             Accounts
           </DropdownMenuItem>
-          <DropdownMenuItem className="w-full h-10 hover:bg-rose-600! hover:text-white!">
+          <DropdownMenuItem
+            onClick={() => router.push(`/dashboard/transfers/scheduled`)}
+            className="w-full h-10 hover:bg-rose-600! hover:text-white!"
+          >
             {" "}
             <CalendarClockIcon className="hover:text-white" /> Scheduled
             Tranfers
