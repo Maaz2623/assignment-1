@@ -74,7 +74,14 @@ export const TransfersDropdown = ({ children }: Props) => {
             <BadgeDollarSignIcon className="hover:text-white" /> USD Wire
             Transfers
           </DropdownMenuItem>
-          <DropdownMenuItem className="w-full h-10 hover:bg-rose-600! hover:text-white!">
+          <DropdownMenuItem
+            onClick={() =>
+              router.push(
+                `/dashboard/transfers/manage-external-transfers-account`
+              )
+            }
+            className="w-full h-10 hover:bg-rose-600! hover:text-white!"
+          >
             {" "}
             <UsersIcon className="hover:text-white" /> Manage External Tranfers
             Accounts
