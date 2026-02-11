@@ -204,7 +204,7 @@ const UsdWireTransfers = () => {
 
           <section className="mb-10">
             <h2 className="text-base font-medium mb-4">
-              Beneficiary's Information
+              Beneficiary&apos;s Information
             </h2>
 
             <div className="space-y-5 max-w-3xl">
@@ -275,7 +275,7 @@ const UsdWireTransfers = () => {
 
           <section className="mb-10">
             <h2 className="text-base font-medium mb-4">
-              Beneficiary's Financial Institution
+              Beneficiary&apos;s Financial Institution
             </h2>
 
             <div className="space-y-5 max-w-3xl">
