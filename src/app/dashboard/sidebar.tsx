@@ -17,6 +17,7 @@ import { Changa_One, Bebas_Neue } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { TransfersDropdown } from "./transfers/_components/transfers-dropdown";
+import { PaymentsDropdown } from "./payments/_components/payments-dropdown";
 
 const changaOne = Changa_One({ subsets: ["latin"], weight: ["400"] });
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
@@ -79,6 +80,8 @@ export default function Sidebar() {
       <nav className="flex-1 space-y-2">
         {sidebarItems.map((item) => {
           const isTranfer = item.url === "/dashboard/transfers";
+          const isPayments = item.url === "/dashboard/payments";
+          const isLink = !isTranfer && !isPayments;
           return (
             <div
               key={item.url}
@@ -87,7 +90,22 @@ export default function Sidebar() {
                 pathname === item.url && "bg-white text-red-600"
               )}
             >
-              {isTranfer ? (
+              {isPayments && (
+                <PaymentsDropdown>
+                  <div
+                    key={item.url}
+                    className={cn(
+                      "w-full h-full justify-center items-center flex flex-col",
+                      pathname.includes("/dashboard/payments") &&
+                        "bg-white text-red-600"
+                    )}
+                  >
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    Payments
+                  </div>
+                </PaymentsDropdown>
+              )}
+              {isTranfer && (
                 <TransfersDropdown>
                   <div
                     key={item.url}
@@ -101,7 +119,8 @@ export default function Sidebar() {
                     Transfers
                   </div>
                 </TransfersDropdown>
-              ) : (
+              )}
+              {isLink && (
                 <Link
                   href={item.url}
                   key={item.url}
